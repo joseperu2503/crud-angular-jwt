@@ -1,0 +1,21 @@
+
+<mat-card-title>Welcome back!</mat-card-title>
+<form action="" [formGroup]="form" class="flex flex-col gap-4 mt-8">
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="joseperu2503@gmail.com" formControlName="email">
+    <mat-icon fontIcon="alternate_email" matSuffix></mat-icon>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="12345678" formControlName="password" [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="login()">Login</button>
+  <span class="text-xs text-zinc-600 text-center">
+    Don'have an account?
+    <button class="font-bold" (click)="goRegister()">Sign up for free</button>
+  </span>
+</form>

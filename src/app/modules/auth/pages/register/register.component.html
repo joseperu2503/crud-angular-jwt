@@ -1,0 +1,25 @@
+<mat-card-title>Create an account</mat-card-title>
+<form action="" [formGroup]="form" class="flex flex-col gap-4 mt-8">
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Jose Perez" formControlName="name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="user@mail.com" formControlName="email">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="12345678" formControlName="password" type="password">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput placeholder="12345678" formControlName="password_confirmation" type="password">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="register()">Create acccount</button>
+  <span class="text-xs text-zinc-600 text-center">
+    Already have an account?
+    <button class="font-bold" (click)="goLogin()">Log in</button>
+  </span>
+</form>
+
