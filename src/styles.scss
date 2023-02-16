@@ -10,6 +10,23 @@
 }
 
 
+// .blue-snackbar {
+//   background: $primary;
+// }
+
+// .success-snackbar {
+//   background: $success;
+// }
+
+.error-snackbar {
+  background: #ef4444;
+  .mdc-snackbar__surface{
+    background-color: transparent !important;
+  }
+}
+
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

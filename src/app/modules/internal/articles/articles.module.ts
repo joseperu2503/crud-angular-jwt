@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {MatTableModule} from '@angular/material/table';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { ArticlesRoutingModule } from './articles-routing.module';
 import { MaterialModule } from '../../material/material.module';
@@ -16,7 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    MatTableModule,
     ArticlesRoutingModule,
     MaterialModule,
     ReactiveFormsModule

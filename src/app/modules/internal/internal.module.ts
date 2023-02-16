@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { InternalRoutingModule } from './internal-routing.module';
 import { InternalComponent } from './internal.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [
-    InternalComponent
+    InternalComponent,
   ],
   imports: [
     CommonModule,
-    InternalRoutingModule
+    InternalRoutingModule,
+    MaterialModule
   ]
 })
 export class InternalModule { }

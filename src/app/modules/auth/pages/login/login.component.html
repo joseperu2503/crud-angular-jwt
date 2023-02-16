@@ -5,6 +5,9 @@
     <mat-label>Email</mat-label>
     <input matInput placeholder="joseperu2503@gmail.com" formControlName="email">
     <mat-icon fontIcon="alternate_email" matSuffix></mat-icon>
+    <mat-error *ngIf="form.controls.email.hasError('invalid')">
+      {{form.controls.email.getError('invalid')}}
+    </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Password</mat-label>
@@ -12,6 +15,9 @@
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
+    <mat-error *ngIf="form.controls.password.hasError('invalid')">
+      {{form.controls.password.getError('invalid')}}
+    </mat-error>
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="login()">Login</button>
   <span class="text-xs text-zinc-600 text-center">

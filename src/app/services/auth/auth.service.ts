@@ -24,4 +24,11 @@ export class AuthService {
   register(data: RegisterDTO){
     return this.http.post<any>(`register`, data)
   }
+
+  logout(){
+    return this.http.get<any>(`logout`)
+    .pipe(
+      tap(() => this.tokenService.removeToken())
+    )
+  }
 }

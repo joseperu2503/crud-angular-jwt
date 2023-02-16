@@ -20,4 +20,8 @@ export class ArticlesService {
   createArticle(body: any){
     return this.http.post('articles', body)
   }
+
+  deleteArticle(idArticle: number){
+    return this.http.delete(`articles/${idArticle}`)
+  }
 }

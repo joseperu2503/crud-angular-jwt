@@ -33,6 +33,15 @@ export class HttpService {
     return this.http.get<T>(url, {headers})
   }
 
+  delete<T>(query: string) {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.getToken()}`
+    });
+
+    const url = `${this.apiUrl}/${query}`;
+    return this.http.delete<T>(url, {headers})
+  }
+
   getToken(){
     return this.tokenService.getToken()
   }

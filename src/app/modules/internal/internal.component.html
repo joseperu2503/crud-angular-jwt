@@ -2,12 +2,21 @@
   <div class="text-white text-lg font-logo">J-commerce</div>
   <nav class="text-white">
     <ul class="flex gap-4">
-      <li>Home</li>
+      <a [routerLink]="['articles']">Home</a>
       <li>Contact</li>
       <li>My products</li>
     </ul>
   </nav>
-  <div></div>
+  <img
+    mat-button
+    [matMenuTriggerFor]="beforeMenu"
+    class="w-10 h-10 rounded-full cursor-pointer"
+    src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+  >
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item [routerLink]="['profile']">Profile</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
 </div>
 <nav class="fixed top-14 bottom-0 left-0 right-0">
   <div class="h-full max-w-7xl mx-auto py-14 px-8">
