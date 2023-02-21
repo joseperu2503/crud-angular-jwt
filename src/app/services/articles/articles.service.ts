@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Article } from 'src/app/models/article.interface';
+import { Article, ArticleDTO } from 'src/app/models/article.interface';
 import { HttpService } from '../http/http.service';
 import { TokenService } from '../token/token.service';
 
@@ -17,11 +17,19 @@ export class ArticlesService {
     return this.http.get<Article[]>('articles')
   }
 
+  getArticle(articleId: number){
+    return this.http.get<Article>(`articles/${articleId}`)
+  }
+
   createArticle(body: any){
     return this.http.post('articles', body)
   }
 
-  deleteArticle(idArticle: number){
-    return this.http.delete(`articles/${idArticle}`)
+  updateArticle(articleId: number, body: ArticleDTO){
+    return this.http.put(`articles/${articleId}`, body)
+  }
+
+  deleteArticle(articleId: number){
+    return this.http.delete(`articles/${articleId}`)
   }
 }

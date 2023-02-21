@@ -2,7 +2,7 @@
 <mat-card>
   <mat-card-content>
     <h2 class="text-2xl font-bold text-gray-600 mb-6">Articles</h2>
-    <button mat-raised-button color="primary" (click)="openDialog()">
+    <button mat-raised-button color="primary" (click)="newArticle()">
       <mat-icon fontIcon="add"></mat-icon>
       New
     </button>
@@ -31,7 +31,7 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="editArticle(element.id)">
               <mat-icon>edit</mat-icon>
               <span>Edit</span>
             </button>

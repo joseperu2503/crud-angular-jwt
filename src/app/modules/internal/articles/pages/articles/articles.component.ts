@@ -50,8 +50,18 @@ export class ArticlesComponent implements OnInit {
     )
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ArticleForm);
+  editArticle(articleId: number){
+    this.openForm(articleId)
+  }
+
+  newArticle(): void {
+    this.openForm(null)
+  }
+
+  openForm(articleId: number | null){
+    const dialogRef = this.dialog.open(ArticleForm, {
+      data: {articleId},
+    });
     dialogRef.componentInstance.getData.subscribe(() => this.getArticles())
   }
 

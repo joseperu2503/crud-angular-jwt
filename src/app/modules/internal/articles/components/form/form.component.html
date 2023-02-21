@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>New Article</h1>
+<h1 mat-dialog-title>{{ title }}</h1>
 <mat-dialog-content>
   <form [formGroup]="form" class="flex flex-col flex-nowrap">
     <mat-form-field appearance="fill">
@@ -27,6 +27,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button (click)="close()">Cancel</button>
-  <button mat-button cdkFocusInitial (click)="submit()">Save</button>
+  <button mat-button cdkFocusInitial (click)="submit()">{{btnSubmit}}</button>
 </mat-dialog-actions>
 
