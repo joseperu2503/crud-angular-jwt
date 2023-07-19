@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "login-angular": {
+    "crud-angular-jwt": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/login-angular",
+            "outputPath": "dist/crud-angular-jwt",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -27,7 +27,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/.htaccess"
             ],
             "styles": [
               "src/styles.scss",
@@ -40,7 +41,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "1000kb",
                   "maximumError": "1mb"
                 },
                 {
@@ -78,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "login-angular:build:production"
+              "browserTarget": "crud-angular-jwt:build:production"
             },
             "development": {
-              "browserTarget": "login-angular:build:development"
+              "browserTarget": "crud-angular-jwt:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "login-angular:build"
+            "browserTarget": "crud-angular-jwt:build"
           }
         },
         "test": {

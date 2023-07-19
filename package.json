@@ -1,5 +1,5 @@
 {
-  "name": "login-angular",
+  "name": "crud-angular-jwt",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

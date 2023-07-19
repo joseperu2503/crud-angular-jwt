@@ -12,25 +12,25 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$login-angular-primary: mat.define-palette(mat.$red-palette, 600);
-$login-angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$crud-angular-jwt-primary: mat.define-palette(mat.$red-palette, 600);
+$crud-angular-jwt-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$login-angular-warn: mat.define-palette(mat.$red-palette);
+$crud-angular-jwt-warn: mat.define-palette(mat.$red-palette);
 
 $spinner-color: mat.define-palette(mat.$lime-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$login-angular-theme: mat.define-light-theme((
+$crud-angular-jwt-theme: mat.define-light-theme((
   color: (
-    primary: $login-angular-primary,
-    accent: $login-angular-accent,
-    warn: $login-angular-warn,
+    primary: $crud-angular-jwt-primary,
+    accent: $crud-angular-jwt-accent,
+    warn: $crud-angular-jwt-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($login-angular-theme);
+@include mat.all-component-themes($crud-angular-jwt-theme);
