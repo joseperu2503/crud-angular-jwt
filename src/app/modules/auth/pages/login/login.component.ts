@@ -20,29 +20,32 @@ export class LoginComponent {
     private formService: FormService,
     public notificationService: NotificationService
   ){}
-  hide = true;
 
+  hide: boolean = true;
   form = this.formBuilder.nonNullable.group({
     email: [''],
     password: [''],
   });
+  loading: boolean = false;
 
 
-  login(){
+  login(event:any){
+    event.preventDefault();
+    this.loading = true
     this.authService.login(this.form.getRawValue())
     .subscribe( {
       next: response => {
+        this.loading = false
         this.router.navigate(['articles'])
       },
       error: error => {
+        this.loading = false
         if (error.status === 422){
           this.form = this.formService.setErrors(this.form, error)
         }
         else{
           this.notificationService.error('Incorrect email or password')
         }
-
-
       }
     })
   }

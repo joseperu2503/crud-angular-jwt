@@ -1,15 +1,12 @@
 <div class="fixed top-0 right-0 left-0 bottom-0 bg-white">
-  <div class="h-full w-full flex flex-col justify-center lg:grid grid-cols-12 gap-4 lg:gap-8 px-10 max-w-6xl mx-auto py-10">
-    <div class="hidden md:flex col-span-12 md:col-span-12 lg:col-span-6 items-center justify-center">
-      <img src="/assets/illustrations/building_websites.svg" class="max-w-xs lg:w-full lg:max-w-none">
+  <div class="h-full w-full flex flex-col justify-center lg:grid grid-cols-2 gap-4 lg:gap-8 px-10 max-w-6xl mx-auto py-10">
+    <div class="hidden lg:flex col-span-1 items-center justify-center">
+      <img src="/assets/illustrations/login.svg" class="w-full max-w-md">
     </div>
-    <div class="col-span-12 md:col-span-12 lg:col-span-6 flex items-center justify-center">
-      <mat-card class="w-full max-w-sm">
-        <mat-card-content>
-          <router-outlet></router-outlet>
-        </mat-card-content>
-      </mat-card>
+    <div class="col-span-2 md:col-span-2 lg:col-span-1 flex items-center justify-center">
+      <div class="w-full max-w-sm">
+        <router-outlet></router-outlet>
+      </div>
     </div>
-    <div></div>
   </div>
 </div>
