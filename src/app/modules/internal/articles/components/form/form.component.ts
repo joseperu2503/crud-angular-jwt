@@ -26,7 +26,9 @@ export class ArticleForm implements OnInit {
     description: new FormControl<string>(''),
     price: new FormControl<number | null>(null),
     stock: new FormControl<number | null>(null),
-});
+  });
+
+  loading: boolean = false
 
   close(){
     this.dialogRef.close();
@@ -38,9 +40,11 @@ export class ArticleForm implements OnInit {
 
   getArticle(){
     if(this.data.articleId){
+      this.loading = true
       this.articlesService.getArticle(this.data.articleId)
       .subscribe({
         next: response => {
+          this.loading = false
           this.form.setValue({
             description: response.description,
             price: response.price,
@@ -52,29 +56,25 @@ export class ArticleForm implements OnInit {
   }
 
   submit(){
+    this.loading = true
+    let service
     if(this.data.articleId){
-      this.articlesService.updateArticle(this.data.articleId, this.form.getRawValue())
-      .subscribe( {
-        next: response => {
-          this.close();
-          this.getData.emit()
-        },
-        error: error => {
-          this.form = this.formService.setErrors(this.form, error)
-        }
-      })
+      service = this.articlesService.updateArticle(this.data.articleId, this.form.getRawValue())
     }else{
-      this.articlesService.createArticle(this.form.getRawValue())
-      .subscribe( {
-        next: response => {
-          this.close();
-          this.getData.emit()
-        },
-        error: error => {
-          this.form = this.formService.setErrors(this.form, error)
-        }
-      })
+      service = this.articlesService.createArticle(this.form.getRawValue())
     }
+
+    service.subscribe({
+      next: response => {
+        this.loading = false
+        this.close();
+        this.getData.emit()
+      },
+      error: error => {
+        this.loading = false
+        this.form = this.formService.setErrors(this.form, error)
+      }
+    })
 
   }
 

@@ -1,25 +1,45 @@
-<mat-card-title>Create an account</mat-card-title>
-<form action="" [formGroup]="form" class="flex flex-col gap-4 mt-8">
-  <mat-form-field class="example-full-width">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Jose Perez" formControlName="name">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="user@mail.com" formControlName="email">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Password</mat-label>
-    <input matInput placeholder="12345678" formControlName="password" type="password">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Confirm Password</mat-label>
-    <input matInput placeholder="12345678" formControlName="password_confirmation" type="password">
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="register()">Create acccount</button>
-  <span class="text-xs text-zinc-600 text-center">
-    Already have an account?
-    <button class="font-bold" (click)="goLogin()">Log in</button>
-  </span>
-</form>
-
+<mat-card>
+  <mat-card-content>
+    <h2 class="font-medium text-xl text-gray-800">Create an account</h2>
+    <form action="" [formGroup]="form" class="flex flex-col gap-4 mt-8">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Jose Perez" formControlName="name" name="name">
+        <mat-error *ngIf="form.controls.name.hasError('invalid')">
+          {{form.controls.name.getError('invalid')}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="user@mail.com" formControlName="email" name="email">
+        <mat-error *ngIf="form.controls.email.hasError('invalid')">
+          {{form.controls.email.getError('invalid')}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="12345678" formControlName="password" type="password" name="password">
+        <mat-error *ngIf="form.controls.password.hasError('invalid')">
+          {{form.controls.password.getError('invalid')}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput placeholder="12345678" formControlName="password_confirmation" type="password" name="password">
+        <mat-error *ngIf="form.controls.password_confirmation.hasError('invalid')">
+          {{form.controls.password_confirmation.getError('invalid')}}
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="register()" [disabled]="loading" type="button">
+        <div class="flex gap-4">
+          <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+          Create acccount
+        </div>
+      </button>
+      <span class="text-xs text-zinc-600 text-center">
+        Already have an account?
+        <button class="font-bold hover:underline" (click)="goLogin()">Log in</button>
+      </span>
+    </form>
+  </mat-card-content>
+</mat-card>

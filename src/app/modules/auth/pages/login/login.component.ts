@@ -33,7 +33,7 @@ export class LoginComponent {
     event.preventDefault();
     this.loading = true
     this.authService.login(this.form.getRawValue())
-    .subscribe( {
+    .subscribe({
       next: response => {
         this.loading = false
         this.router.navigate(['articles'])
